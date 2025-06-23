@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Black & White</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>2048 Black & White</h1>
+    
+    <div class="score-container">
+        <div class="score-box">
+            <div class="score-title">SCORE</div>
+            <div class="score-value" id="score">0</div>
+        </div>
+        <div class="score-box">
+            <div class="score-title">BEST</div>
+            <div class="score-value" id="best-score">0</div>
+        </div>
+    </div>
+    
+    <div class="game-container">
+        <div class="game-board" id="game-board">
+            <!-- Cells and tiles will be generated here -->
+        </div>
+        <div class="game-over" id="game-over">
+            <h2>Game Over!</h2>
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button onclick="resetGame()">New Game</button>
+    </div>
+    
+    <div class="instructions">
+        <h3>How to Play:</h3>
+        <ul>
+            <li>Use arrow keys or swipe to move all tiles</li>
+            <li>When two tiles with the same number touch, they merge!</li>
+            <li>Get to 2048 to win!</li>
+            <li>Game ends when there are no more moves available</li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
