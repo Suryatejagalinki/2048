@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: 2.5rem;
+    text-align: center;
+    color: white;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.game-board {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: #222;
+    border-radius: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.cell {
+    background-color: #333;
+    border-radius: 5px;
+    position: relative;
+}
+
+.tile {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: all 0.15s ease;
+    color: white;
+}
+
+.tile.new {
+    animation: appear 0.3s;
+}
+
+.tile.merged {
+    animation: pop 0.3s;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Black and white color scheme */
+.tile-2 {
+    background-color: #444;
+}
+.tile-4 {
+    background-color: #555;
+}
+.tile-8 {
+    background-color: #666;
+}
+.tile-16 {
+    background-color: #777;
+}
+.tile-32 {
+    background-color: #888;
+}
+.tile-64 {
+    background-color: #999;
+}
+.tile-128 {
+    background-color: #aaa;
+    font-size: 1.2rem;
+}
+.tile-256 {
+    background-color: #bbb;
+    font-size: 1.2rem;
+}
+.tile-512 {
+    background-color: #ccc;
+    font-size: 1.2rem;
+    color: #333;
+}
+.tile-1024 {
+    background-color: #ddd;
+    font-size: 1rem;
+    color: #333;
+}
+.tile-2048 {
+    background-color: #eee;
+    font-size: 1rem;
+    color: #333;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.score-box {
+    background-color: #111;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 120px;
+}
+
+.score-title {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #aaa;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.game-over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.game-over.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.game-over h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.instructions {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #222;
+    border-radius: 10px;
+    line-height: 1.5;
+    color: #aaa;
+}
+
+.instructions h3 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.instructions ul {
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 5px;
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .tile {
+        font-size: 1rem;
+    }
+    
+    .tile-128, .tile-256, .tile-512 {
+        font-size: 0.9rem;
+    }
+    
+    .tile-1024, .tile-2048 {
+        font-size: 0.8rem;
+    }
+}
